@@ -31,6 +31,18 @@
       {{ partial "post_metadata.html" . }}
     {{ end }}
 
+    <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+        <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+        <div id="comment-section"></div>
+        <script>
+        initComments({
+        node: document.getElementById("comment-section"),
+        defaultHomeserverUrl: "https://matrix.cactus.chat:8448",
+        serverName: "cactus.chat",
+            siteName: "{{ .Site.Params.cactus }}",
+        commentSectionId: "{{ .Permalink  | base64Encode }}"
+        })
+    </script>
     {{ if $enableComment }}
       <div id="comments" class="article-card">
         {{ partial "comments.html" . }}
