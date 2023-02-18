@@ -31,6 +31,8 @@
       {{ partial "post_metadata.html" . }}
     {{ end }}
 
+    {{ if .Site.Params.cactus }}
+    <div class="metatop">
     <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
         <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
         <div id="comment-section"></div>
@@ -43,6 +45,8 @@
         commentSectionId: "{{ .Permalink  | base64Encode }}"
         })
     </script>
+    </div>
+    {{ end }}
     {{ if $enableComment }}
       <div id="comments" class="article-card">
         {{ partial "comments.html" . }}
